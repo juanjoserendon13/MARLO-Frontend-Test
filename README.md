@@ -12,7 +12,7 @@
 4.	Send link of your repo, and we will clone (or download) it for review.
 
 ## Test instructions
-Design and develop (HTML/CSS/JavaScript) a simple web interface which main purpose is manage a user’s list, it is not necessary that the information be stored in a database.
+Design and develop (HTML/CSS/JavaScript) a simple web interface which main purpose is manage a user’s list, it is **not** necessary that the information be stored in a database.
 
 <div align="center">
   <img src="https://i.imgur.com/gF2Touo.png" alt="Front End Mockup"/> 
