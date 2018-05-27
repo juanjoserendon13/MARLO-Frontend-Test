@@ -1,0 +1,16 @@
+.globalCont {
+    margin: 0 auto;
+    background-color: rgb(223, 223, 223);
+    display: flex;
+    width: 80%;
+    font-family: Arial, Helvetica, sans-serif;
+    
+    flex-direction: column;
+}
+
+.userCont{
+    background-color: #fff;
+    flex: 1;
+    margin-bottom: 1em;
+    border: 1px solid rgb(185, 185, 185);
+}
