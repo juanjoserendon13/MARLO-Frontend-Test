@@ -42,16 +42,16 @@ $(document).ready(function () {
         var inputPEmail = $("<input>", { "type": "text", "placeholder": value.email });
         var roleT = $("<span>").text("User role(s):");
         var itemUl = $("<ul>", { "class": "roles" });
-        var itemLi = $("<li>", { "class": "itemRole" });
-        var inputCheck = $("<input>", { "type": "checkbox" });
+        var itemLi1 = $("<li>", { "class": "itemRole" });
+        var itemLi2 = $("<li>", { "class": "itemRole" });
+        var itemLi3 = $("<li>", { "class": "itemRole" });
+        var inputCheck1 = $("<input>", { "type": "checkbox" });
+        var inputCheck2 = $("<input>", { "type": "checkbox" });
+        var inputCheck3 = $("<input>", { "type": "checkbox" });
         var roleOne = $("<span>", { "class": "textCheck" }).text("Administrador");
         var roleTwo = $("<span>", { "class": "textCheck" }).text("Member");
         var roleThree = $("<span>", { "class": "textCheck" }).text("Contributor");
 
-        userCont.append(indexUs, dataUs, editBtn);
-        dataUs.append(nameUs, inputsUs);
-        inputsUs.append(inputsLef, inputsRig);
-        inputsLef.append(input1, input2, input3);
 
 
         var inputsRig = $("<div>", { "class": "inputsRight" });
@@ -61,8 +61,10 @@ $(document).ready(function () {
         var inputsUserN = $("<input>", { "type": "text", "placeholder": value.userName });
         var userAc = $("<span>").text("User active:");
         var itemUlAc = $("<ul>", { "class": "active" });
-        var itemLiAc = $("<li>", { "class": "itemUser" });
-        var inputRadio = $("<input>", { "type": "radio" });
+        var itemLiAc1 = $("<li>", { "class": "itemUser" });
+        var itemLiAc2 = $("<li>", { "class": "itemUser" });
+        var inputRadio1 = $("<input>", { "type": "radio" });
+        var inputRadio2 = $("<input>", { "type": "radio" });
         var txtRadioOne = $("<span>", { "class": "textRadio" }).text("Yes");
         var txtRadioTwo = $("<span>", { "class": "textRadio" }).text("No");
         var closeBtn = $("<button>", { "class": "closeBtn", "id": value.id });
@@ -76,20 +78,42 @@ $(document).ready(function () {
         var deleteBtn = $("<button>", { "class": "deleteBtn", "id": "delete_" + value.id });
         var iconEdit = $("<i>", { "class": "fas fa-times" });
 
+        userCont.append(indexUs, dataUs, editBtn);
+        dataUs.append(nameUs, inputsUs);
+        inputsUs.append(inputsLef, inputsRig);
+        inputsLef.append(input1, input2, input3);
+        input1.append(first, inputPFirst);
+        input2.append(emailU, inputPEmail);
+        input3.append(roleT, itemUl);
+        itemUl.append(itemLi1, itemLi2, itemLi3);
+        itemLi1.append(inputCheck1, roleOne)
+        itemLi2.append(inputCheck2, roleTwo);
+        itemLi3.append(inputCheck3, roleThree);
 
+        inputsRig.append(input4, input5, input6, closeBtn);
+        input4.append(lastN, inputPLast);
+        input5.append(userN, inputsUserN);
+        input6.append(userAc, itemUlAc);
+        itemUlAc.append(itemLiAc1, itemLiAc2);
+        itemLiAc1.append(inputRadio1, txtRadioOne);
+        itemLiAc2.append(inputRadio2, txtRadioTwo);
+        closeBtn.append(iconClose, txtClose);
 
+        /* Add the incoming data to the html root */
         $(".globalCont").append(userCont);
     });
 
     /* Function that shows the information of the user */
     $(".editBtn").on("click", function (event) {
         var id = $(this).closest("div").attr("id");
+        var userTitle = $("div#" + id + " .nameUser")
         var inputs = $("#inputs_from_" + id);
         var editBtn = $("#edit_" + id);
         var deleteBtn = $("#delete_" + id);
         // var id = e.target.attr("id");
         console.log(id);
-
+        userTitle.css("border-bottom", "1px solid rgb(62, 156, 219)")
+        userTitle.css("padding-bottom", "0.5em")
         inputs.css("display", "flex");
         editBtn.hide();
         deleteBtn.show();
@@ -98,12 +122,14 @@ $(document).ready(function () {
     /* Function that hide the information of the user */
     $(".closeBtn").on("click", function (event) {
         var id = $(this).attr("id");
+        var userTitle = $("div#" + id + " .nameUser")
         var inputs = $("#inputs_from_" + id);
         var editBtn = $("#edit_" + id);
         var deleteBtn = $("#delete_" + id);
         // var id = e.target.attr("id");
         console.log(id);
-
+        userTitle.css("border-bottom", "0")
+        userTitle.css("padding-bottom", "0")
         inputs.css("display", "none");
         editBtn.show();
         deleteBtn.hide();
