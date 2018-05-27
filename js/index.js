@@ -31,7 +31,8 @@ $(document).ready(function () {
     });
 
     /* Function that shows the information of the user */
-    $(".editBtn").on("click", function (event) {
+    /* Issue with the elements added solved, using delegate event */
+    $(document).on("click", ".editBtn", function (event) {
         var id = $(this).closest("div").attr("id");
         var userTitle = $("div#" + id + " .nameUser")
         var inputs = $("#inputs_from_" + id);
@@ -46,8 +47,9 @@ $(document).ready(function () {
         deleteBtn.show();
     });
 
+
     /* Function that hide the information of the user */
-    $(".closeBtn").on("click", function (event) {
+    $(document).on("click", ".closeBtn", function (event) {
         var id = $(this).attr("id");
         var userTitle = $("div#" + id + " .nameUser")
         var inputs = $("#inputs_from_" + id);
@@ -63,7 +65,7 @@ $(document).ready(function () {
     });
 
     /* Function that delete the element selected */
-    $(".deleteBtn").on("click", function (event) {
+    $(document).on("click", ".deleteBtn", function (event) {
         var id = $(this).closest("div").attr("id");
         $("#" + id).remove();
     });
@@ -80,9 +82,11 @@ $(document).ready(function () {
             userName: 'thenewuser',
         });
 
+
         $(".globalCont").append(createElement(users.length, "New", "User", "email@correo", "thenewuser"));
         lenghtArray();
     });
+
     function lenghtArray() {
         console.log("largo array: " + users.length);
 
