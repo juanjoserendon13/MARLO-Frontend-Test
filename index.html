@@ -18,29 +18,90 @@
 
 <body>
 
+    <!-- Container for all the users -->
     <div class="globalCont">
 
-        <div class="userCont">
+        <div class="userCont" id="1">
 
             <div class="indexUser">
                 1
             </div>
             <div class="dataUser">
                 <span class="nameUser">Juan José Rendón</span>
+                <div class="inputsUser" id="inputs_from_1">
+
+                    <div class="inputsLeft">
+
+                        <div class="inputs">
+                            <span>First name:</span>
+                            <input type="text" placeholder="Name">
+                        </div>
+                        <div class="inputs">
+                            <span>Email:</span>
+                            <input type="text" placeholder="Name">
+                        </div>
+                        <div class="inputs">
+                            <span>User role(s):</span>
+                            <ul class="roles">
+                                <li class="itemRole">
+                                    <input type="checkbox" />
+                                    <span class="textCheck">Administrator</span>
+                                </li>
+                                <li class="itemRole">
+                                    <input type="checkbox" />
+                                    <span class="textCheck">Member</span>
+                                </li>
+                                <li class="itemRole">
+                                    <input type="checkbox" />
+                                    <span class="textCheck">Contributor</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                    <div class="inputsRight">
+                        <div class="inputs">
+                            <span>Last name:</span>
+                            <input type="text" placeholder="Name">
+                        </div>
+                        <div class="inputs">
+                            <span>User name:</span>
+                            <input type="text" placeholder="Name">
+                        </div>
+                        <div class="inputs">
+                            <span>User active:</span>
+                            <ul class="active">
+                                <li class="itemUser">
+                                    <input type="radio" />
+                                    <span class="textRadio">Yes</span>
+                                </li>
+                                <li class="itemUser">
+                                    <input type="radio" />
+                                    <span class="textRadio">No</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <button class="closeBtn" id="1">
+                            <i class="far fa-edit iconClose"></i>
+                            <span>Close</span>
+                        </button>
+                    </div>
+
+                </div>
             </div>
-            <button class="editBtn">
+            <button class="editBtn" id="edit_1">
                 <i class="far fa-edit iconEdit"></i>Edit</button>
-            <button class="cancelBtn">
-                    <i class="fas fa-times"></i>
+            <button class="deleteBtn" id="delete_1">
+                <i class="fas fa-times"></i>
             </button>
 
         </div>
 
-
     </div>
 
     <!-- Jquery -->
-    <script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="./js/jquery-3.3.1.min.js"></script>
     <!-- Local JS -->
     <script type="text/javascript" src="./js/index.js"></script>
 
