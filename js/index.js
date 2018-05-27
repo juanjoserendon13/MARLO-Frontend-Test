@@ -20,11 +20,7 @@ $(document).ready(function () {
 
     /* This method process the incoming data  */
     $.each(users, function (index, value) {
-        console.log(value.name);
         // time += 200;
-
-
-
 
         /* Add the incoming data to the html root */
         $(".globalCont").append(createElement(value.id, value.name, value.last, value.email, value.userName));
@@ -56,7 +52,7 @@ $(document).ready(function () {
         var editBtn = $("#edit_" + id);
         var deleteBtn = $("#delete_" + id);
         // var id = e.target.attr("id");
-        console.log(id);
+        // console.log(id);
         userTitle.css("border-bottom", "0")
         userTitle.css("padding-bottom", "0")
         inputs.css("display", "none");
@@ -67,7 +63,23 @@ $(document).ready(function () {
     /* Function that delete the element selected */
     $(document).on("click", ".deleteBtn", function (event) {
         var id = $(this).closest("div").attr("id");
-        $("#" + id).remove();
+
+        $("div.userCont").remove();
+
+        users.splice(id - 1, 1);
+        var idSecond = 0;
+        $.each(users, function (index, value) {
+            idSecond++;
+            users[index].id = idSecond;
+        });
+
+        $.each(users, function (index, value) {
+            /* Add the incoming data to the html root */
+            $(".globalCont").append(createElement(value.id, value.name, value.last, value.email, value.userName));
+        });
+
+        console.log(users);
+
     });
 
     /* Function to add  new users*/
